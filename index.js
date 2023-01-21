@@ -1,9 +1,10 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const manager = require("./lib/Manager");
+const Manager = require("./lib/Manager");
 const Employee = require("./lib/Employee");
-const intern = require("./lib/Intern");
+const Intern = require("./lib/Intern");
 const { run } = require("jest");
+const Engineer = require("./lib/Engineer");
 const team = [];
 function runProgram() {
   inquirer
@@ -13,23 +14,27 @@ function runProgram() {
         message: "please enter a manager name",
         name: "name",
       },
-      //   {
-      //     type: "input",
-      //     message: "please enter manager ID",
-      //     name: "id",
-      //   },
-      //   {
-      //     type: "input",
-      //     message: "please enter manager email",
-      //     name: "id",
-      //   },
-      //   {
-      //     type: "input",
-      //     message: "please enter number",
-      //   },
+      {
+        type: "input",
+        message: "please enter manager ID",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "please enter manager email",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "please enter office number",
+        name: "number",
+      },
     ])
     .then((answers) => {
       console.log(answers);
+      new Employee();
+      new Manager();
+      console.log(Manager);
 
       menu();
     });
@@ -63,12 +68,68 @@ function menu() {
 }
 
 function addEngineer() {
-  console.log("test");
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "please enter an engineer name",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "please enter engineer ID",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "please enter an email",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "please enter a Github link",
+        name: "github",
+      },
+    ])
+    .then((answers) => {
+      console.log(answers);
+      new Employee();
+      new Engineer();
+    });
+
   menu();
 }
 
 function addIntern() {
-  console.log("caught");
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "please enter an inter name",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "please enter intern ID",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "please enter intern email",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "please enter a college name",
+        name: "school",
+      },
+    ])
+    .then((answers) => {
+      console.log(answers);
+      new Employee();
+      new Intern();
+    });
+
   menu();
 }
 
