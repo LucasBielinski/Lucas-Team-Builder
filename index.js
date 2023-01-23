@@ -32,9 +32,14 @@ function runProgram() {
     ])
     .then((answers) => {
       console.log(answers);
-      new Employee();
-      new Manager();
-      console.log(Manager);
+      let manager = new Manager(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.number
+      );
+      console.log(manager);
+      team.push(manager);
 
       menu();
     });
