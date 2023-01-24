@@ -1,0 +1,22 @@
+header {
+  background-color: #1b065e;
+  color: wheat;
+}
+
+.card {
+  background-color: #1b065e;
+  color: wheat;
+}
+
+body {
+  background-color: wheat;
+}
+
+a {
+  text-decoration: none;
+  color: wheat;
+}
+
+a:hover {
+  color: yellow;
+}
