@@ -3,9 +3,11 @@ const fs = require("fs");
 const Manager = require("./lib/Manager");
 const Employee = require("./lib/Employee");
 const Intern = require("./lib/Intern");
+const template = require("./src/template");
 const { run } = require("jest");
 const Engineer = require("./lib/Engineer");
 const team = [];
+
 function runProgram() {
   inquirer
     .prompt([
@@ -98,11 +100,16 @@ function addEngineer() {
     ])
     .then((answers) => {
       console.log(answers);
-      new Employee();
-      new Engineer();
+      let engineer = new Engineer(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.github
+      );
+      console.log(engineer);
+      team.push(engineer);
+      menu();
     });
-
-  menu();
 }
 
 function addIntern() {
@@ -131,11 +138,16 @@ function addIntern() {
     ])
     .then((answers) => {
       console.log(answers);
-      new Employee();
-      new Intern();
+      let intern = new Intern(
+        answers.name,
+        answers.id,
+        answers.email,
+        answers.school
+      );
+      console.log(intern);
+      team.push(intern);
+      menu();
     });
-
-  menu();
 }
 
 function writeHtml() {
