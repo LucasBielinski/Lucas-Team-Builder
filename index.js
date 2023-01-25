@@ -128,7 +128,7 @@ function addIntern() {
     .prompt([
       {
         type: "input",
-        message: "please enter an inter name",
+        message: "please enter an intern name",
         name: "name",
       },
       {
