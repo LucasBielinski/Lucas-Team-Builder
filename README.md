@@ -19,6 +19,8 @@ To use this app Node.js, inquirer and Jest must all be installed.
 
 In order to use, simply type "node index" in the terminal, this will run the program. Then enter in the information when prompted. Decide how large you would like your team to be, and add engineers and interns accordingly. When finsished select the "no" option from the menu and it will write the HTML. In order to run the tests. 'cd' into the tests folder and type "npm run test" this will run the tests in the folder.
 
+[video example](https://drive.google.com/file/d/18DNRp-edPPek1drm1memtWOqbgdNbl3M/view)
+
 ## Credits
 
 N/A
