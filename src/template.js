@@ -1,4 +1,6 @@
+// takes in team[i]
 function renderCard(employee) {
+  // builds out common parts of the card
   var baseCard = `<div class="col-sm-8 col-lg-3">
     <div class="card">
     <div class="card-body">
@@ -8,7 +10,7 @@ function renderCard(employee) {
     <p>Emaill: <a class="card-text" href="mailto:${employee.email}"> ${
     employee.email
   }</a></p>`;
-
+  // if card is diffrent role, builds out parts of the card and adds the base to it and builds upon it
   switch (employee.getRole()) {
     case "Manager":
       baseCard += `<p class="card-text"> Office Number: ${employee.number}</p>`;
@@ -20,18 +22,20 @@ function renderCard(employee) {
       baseCard += `<p class="card-text"> School: ${employee.school}</p>`;
       break;
   }
-
+  // builds upon cards by adding an end
   baseCard += ` </div></div></div>`;
-
+  // returns card
   return baseCard;
 }
-
+// takes in team ingo
 function template(team) {
   console.log(team);
 
   //in order to access them we must access their index team[I]
+  // sets cards to blank
   var cards = "";
   for (let i = 0; i < team.length; i++) {
+    // builds out cards
     cards += renderCard(team[i]);
   }
 

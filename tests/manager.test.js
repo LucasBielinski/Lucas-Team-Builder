@@ -1,6 +1,7 @@
 const Employee = require("../lib/Employee");
 const Manager = require("../lib/Manager");
 
+// tests getNumber function, tests to see if each constructer returns correctly
 describe("getNumber", () => {
   it("should return user input for the office number", () => {
     const manager = new Manager("name", "id", "email", "number");
