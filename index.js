@@ -1,3 +1,4 @@
+// imports classes
 const inquirer = require("inquirer");
 const fs = require("fs");
 const Manager = require("./lib/Manager");
@@ -7,8 +8,9 @@ const template = require("./src/template");
 const { run } = require("jest");
 const Engineer = require("./lib/Engineer");
 const team = [];
-
+// runs the program
 function runProgram() {
+  // asks questions to build the manager class
   inquirer
     .prompt([
       {
@@ -34,6 +36,7 @@ function runProgram() {
     ])
     .then((answers) => {
       console.log(answers);
+      // creates new manager with answers
       let manager = new Manager(
         answers.name,
         answers.id,
@@ -41,13 +44,15 @@ function runProgram() {
         answers.number
       );
       console.log(manager);
+      // pushes class to empty array
       team.push(manager);
-
+      //  calls menu
       menu();
     });
 }
 
 function menu() {
+  // presents menu to continue to build team
   inquirer
     .prompt([
       {
@@ -57,8 +62,10 @@ function menu() {
         choices: ["Add Engineer", "Add Intern", "no"],
       },
     ])
+    // call function based on what is selected
     .then((answer) => {
       console.log(answer.option);
+      // based on property what is selected
       switch (answer.option) {
         case "Add Engineer":
           addEngineer();
@@ -76,6 +83,7 @@ function menu() {
 
 function addEngineer() {
   inquirer
+    // questions to build class
     .prompt([
       {
         type: "input",
@@ -100,6 +108,7 @@ function addEngineer() {
     ])
     .then((answers) => {
       console.log(answers);
+      // creates new engineer based on answers
       let engineer = new Engineer(
         answers.name,
         answers.id,
@@ -107,6 +116,7 @@ function addEngineer() {
         answers.github
       );
       console.log(engineer);
+      // pushes engineer to team
       team.push(engineer);
       menu();
     });
@@ -114,6 +124,7 @@ function addEngineer() {
 
 function addIntern() {
   inquirer
+    // questions for intern class
     .prompt([
       {
         type: "input",
@@ -136,6 +147,7 @@ function addIntern() {
         name: "school",
       },
     ])
+    // creates new intern class
     .then((answers) => {
       console.log(answers);
       let intern = new Intern(
@@ -145,11 +157,12 @@ function addIntern() {
         answers.school
       );
       console.log(intern);
+      // pushes intern class
       team.push(intern);
       menu();
     });
 }
-
+// if team is built. writes the info to html
 function writeHtml() {
   fs.writeFile("dist/index.html", template(team), (err) => {
     if (err) {

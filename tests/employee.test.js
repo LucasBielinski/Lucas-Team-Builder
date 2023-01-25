@@ -1,5 +1,6 @@
 const Employee = require("../lib/Employee");
 
+// tests getName function, tests to see if each constructer returns correctly
 describe("getName", () => {
   it("should return user input for name", () => {
     const employee = new Employee("name", "id", "email");

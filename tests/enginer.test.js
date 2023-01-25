@@ -1,6 +1,7 @@
 const Employee = require("../lib/Employee");
 const Engineer = require("../lib/Engineer");
 
+// tests getgithub function, tests to see if each constructer returns correctly
 describe("getgithub", () => {
   it("should return user input for github", () => {
     const engineer = new Engineer("name", "id", "email", "github");
