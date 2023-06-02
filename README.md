@@ -1,12 +1,14 @@
-# <TEAM-BUILD>
+# Lucas-Team-Builder
 
 ## Description
 
 In this Node project, a user can enter employee information in their terminal and create teams. I built this as an easy way to log and keep track of employees in a workplace. This project taught me more about writing tests, how to use inquirer and node.js
 
+Technologies used include: Node.js, Inquirer, and Jest
+
 ## Installation
 
-To use this app Node.js, inquirer and Jest must all be installed.
+To use this app Node.js, Inquirer and Jest must all be installed.
 
 ## Usage
 
